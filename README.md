@@ -52,10 +52,36 @@ FMKe was used in January 2017 to evaluate the performance of AntidoteDB. The eva
 The biggest test case used 36 AntidoteDB instances spread across 3 data centers (Germany, Ireland and United States), 9 instances of FMKe and 18 instances of (former Basho Bench) Lasp Bench that simulated 1024 concurrent clients performing operations as quickly as possible.  
 Before the benchmark, AntidoteDB was populated with over 1 million patient keys, 50 hospitals, 10.000 doctors and 300 pharmacies.
 
-## Testing out FMKe locally
+## Testing out FMKe 
 FMKe requires [Erlang/OTP][9] and [rebar3][10]. You need at least Erlang 20, FMKe will not compile in previous versions.  
 
 Please check [the wiki](https://github.com/goncalotomas/FMKe/wiki) for detailed instructions on how to run FMKe with a particular database.
+
+## Run FMKe with Docker
+1. Build the Docker image locally
+```
+docker build -t fmke:local .
+```
+2. Run a FMKe container
+You can pass the configuration for the FMKe container by using `-e` or `--env`. Please check out [Set environment variables](https://docs.docker.com/engine/reference/commandline/run/#set-environment-variables--e---env---env-file) for more information on passing environment variables to a Docker container.
+```
+docker run \
+    --name <container_name> \
+    -e DATABASE_ADDRESSES=<your_value> \
+    -e DATABASE_PORTS=<your_value> \
+    -e TARGET_DATABASE=<your_value> \
+    -e OPTIMIZED_DRIVER=<your_value> \
+    -e CONNECTION_POOL_SIZE=<your_value> \
+    -e HTTP_PORT=<your_value> \
+  fmke:local
+```
+
+Or you can put these environment variables in a file `env.list`
+```
+docker run --env-file env.list --name <container_name> fmke:local
+```
+
+An example of the `env.list` can be found [here](https:/g/github.com/ntlinh16/FMKe/blob/master/env.list).
 
 [1]: https://syncfree.lip6.fr/
 [2]: https://antidotedb.eu
