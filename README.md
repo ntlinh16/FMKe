@@ -81,7 +81,7 @@ Or you can put these environment variables in a file `env.list`
 docker run --env-file env.list --name <container_name> fmke:local
 ```
 
-An example of the `env.list` can be found [here](https:/g/github.com/ntlinh16/FMKe/blob/master/env.list).
+An example of the `env.list` can be found [here](https://github.com/ntlinh16/FMKe/blob/master/env.list).
 
 [1]: https://syncfree.lip6.fr/
 [2]: https://antidotedb.eu
