@@ -24,4 +24,4 @@ if ! [[ -z "${HTTP_PORT}" ]]; then
     sed -i -e "s/{http_port, .*}\./{http_port, $HTTP_PORT}\./g" /buildroot/fmke/_build/default/rel/fmke/config/fmke.config
 fi
 
-/buildroot/fmke/_build/default/rel/fmke/bin/env foreground 
+IP=172.18.0.2 /buildroot/fmke/_build/default/rel/fmke/bin/env foreground 
