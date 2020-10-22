@@ -57,13 +57,28 @@ FMKe requires [Erlang/OTP][9] and [rebar3][10]. You need at least Erlang 20, FMK
 
 Please check [the wiki](https://github.com/goncalotomas/FMKe/wiki) for detailed instructions on how to run FMKe with a particular database.
 
-## Run FMKe with Docker
-1. Build the Docker image locally
+## Run FMKe with a Docker container
+
+<b>1. Get the FMKe Docker image
+
+You can build the Docker image locally:
 ```
+git clone https://github.com/ntlinh16/FMKe
+cd fmke_client/
 docker build -t fmke:local .
 ```
-2. Run a FMKe container
-You can pass the configuration for the FMKe container by using `-e` or `--env`. Please check out [Set environment variables](https://docs.docker.com/engine/reference/commandline/run/#set-environment-variables--e---env---env-file) for more information on passing environment variables to a Docker container.
+or get the image from the docker repository:
+```
+docker pull ntlinh/fmke:latest
+```
+Please remember provide the correct image name to run a Docker container in the Section 2.
+
+<b>2. Run a FMKe container
+
+FMKe needs some environment arrguments to start. These required arrguments are explained in [fmke.config](https://github.com/ntlinh16/FMKe/blob/master/config/fmke.config) file.
+
+You can pass all these arrguments to the FMKe container by using `-e` or `--env` as follow:
+
 ```
 docker run \
     --name <container_name> \
@@ -76,12 +91,15 @@ docker run \
   fmke:local
 ```
 
-Or you can put these environment variables in a file `env.list`
+Or you can put these environment variables in a file `env.list`. Then, run a docker with the env file:
 ```
 docker run --env-file env.list --name <container_name> fmke:local
 ```
 
 An example of the `env.list` can be found [here](https://github.com/ntlinh16/FMKe/blob/master/env.list).
+
+You can check out [Set environment variables](https://docs.docker.com/engine/reference/commandline/run/#set-environment-variables--e---env---env-file) for more information on passing environment variables to a Docker container.
+
 
 [1]: https://syncfree.lip6.fr/
 [2]: https://antidotedb.eu
