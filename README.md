@@ -59,7 +59,7 @@ Please check [the wiki](https://github.com/goncalotomas/FMKe/wiki) for detailed 
 
 ## Run FMKe with a Docker container
 
-##### 1. Get the FMKe Docker image
+**1. Get the FMKe Docker image**
 
 You can build the Docker image locally:
 ```
@@ -73,7 +73,7 @@ docker pull ntlinh/fmke:latest
 ```
 Please remember provide the correct image name to run a Docker container in the Section 2.
 
-##### 2. Run a FMKe container
+**2. Run a FMKe container**
 
 FMKe needs some environment arrguments to start. These required arrguments are explained in [fmke.config](https://github.com/ntlinh16/FMKe/blob/master/config/fmke.config) file.
 
